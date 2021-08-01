@@ -108,11 +108,11 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
     fprintf('Minimum Treshold Value: %d [kW]\n\n', Minimum_treshold_value )
     TH  = input ('Define to treshold value for peak period [kW]: ');
 
-    if TH >= Minimum_treshold_value %Treshold degeri, en yuksek oncelik seviyesine sahip 1.grup yukun maksimum degerinden buyuk olmadir.
+    if TH >= Minimum_treshold_value % Treshold degeri, en yuksek oncelik seviyesine sahip 1.grup yukun maksimum degerinden buyuk olmadir.
         flag  = 1;
         count = 0;
-        Load_sT = Load_T;          % Her yuk grubu uygun gorulmesi halinde sirasiyla otelenir ve istenen seviye yakalanmaya çaliþilir.
-        for index = P_b:P_e        % 5.yuk grubunu oteleme
+        Load_sT = Load_T;           % Her yuk grubu uygun gorulmesi halinde sirasiyla otelenir ve istenen seviye yakalanmaya çalisilir.
+        for index = P_b:P_e        
             ++count;
             P_en  = P_e + count;
             if P_en > 96
@@ -122,7 +122,7 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
             if P_bn > 96
                 P_bn = mod(P_bn,96);
             end
-            if Load_T(index,2) >= TH
+            if Load_T(index,2) >= TH    % 5.yuk grubunu oteleme
                 Load_sT(index,2) = Load_1t(index,2) + Load_2t(index,2) + Load_3t(index,2) + Load_4t(index,2);
                 shift = index + 20 ;%(88. 15dk'lik dilim(22:00) ile 68. 15dk'lik dilim(17:00) arasindaki fark kadar yuku kaydiririz.)
                 if shift > 96
@@ -130,19 +130,8 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
                 end
                 Load_sT(shift,2) = Load_sT(shift,2) + Load_5t(index,2);
             end
-        end
-        count = 0;
-        for index = P_b:P_e        % 4.yuk grubunu oteleme
-            ++count;
-            P_en  = P_e + count ;
-            if P_en > 96
-                P_en = mod(P_en,96);
-            end
-            P_bn = P_b + count;
-            if P_bn > 96
-                P_bn = mod(P_bn,96);
-            end
-            if Load_T(index,2) >= TH
+       
+            if Load_T(index,2) >= TH    % 4.yuk grubunu oteleme
                 Load_sT(index,2) = Load_1t(index,2) + Load_2t(index,2) + Load_3t(index,2);
                 shift = index + 20;
                 if shift > 96
@@ -150,19 +139,8 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
                 end
                 Load_sT(shift,2) = Load_sT(shift,2) + Load_5t(index,2) + Load_4t(index,2);
             end
-        end
-        count = 0;
-        for index = P_b:P_e        % 3.yuk grubunu oteleme
-            ++count;
-            P_en = P_e + count; 
-            if P_en > 96
-                P_en = mod(P_en,96);
-            end
-            P_bn = P_b + count;
-            if P_bn > 96
-                P_bn = mod(P_bn,96);
-            end
-            if Load_T(index,2) >= TH
+       
+            if Load_T(index,2) >= TH     % 3.yuk grubunu oteleme
                 Load_sT(index,2) = Load_1t(index,2) + Load_2t(index,2); 
                 shift = index+20;
                 if shift > 96
@@ -170,19 +148,8 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
                 end
                 Load_sT(shift,2) = Load_sT(shift,2) + Load_5t(index,2) + Load_4t(index,2) + Load_3t(index,2);
             end
-        end
-        count = 0;
-        for index = P_b:P_e        % 2.yuk grubunu oteleme
-            ++count; 
-            P_en = P_e + count; 
-            if P_en > 96
-                P_en = mod(P_en,96);
-            end
-            P_bn = P_b + count;
-            if P_bn > 96
-                P_bn = mod(P_bn,96);
-            end
-            if Load_T(index,2) >= TH
+        
+            if Load_T(index,2) >= TH     % 2.yuk grubunu oteleme
                 Load_sT(index,2) = Load_1t(index,2); 
                 shift = index + 20;
                 if shift > 96
@@ -195,9 +162,9 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
     else %Eger girilen treshold degeri en yuksek oneme sahip olan 1.yuk grubunun enerjisini kaydirmaya calisirsa cihaz 1. yuk grubunun enerjisinin kesilmesini engelleyerek sistemden cikar.
         disp(' ')
         disp('Error! The determined threshold value affects the healthy operation of the 1st load group, which has the highest importance...')       
-        continue
     end
 end
+
 
 stairs  (Load_T (:,2))         % graph settings          
 hold on
@@ -205,6 +172,7 @@ stairs (Load_sT (:,2),':r ')
 legend ('Unshifted Load ','Shifted Load ')
 ylabel ('Power[W]')
 xlabel ('15 minutes periods of day ')
+
 
 %**********************************************
 %Ruzgar turbinin urettigi enerji miktari hesabi
@@ -235,6 +203,7 @@ NT = 0.180231 ; %Night_Period (TL/kWh)| 22:00 - 06:00
 %*************************
 disp(' ')
 disp('*******************************************RESULTS****************************************************')
+
 %Harcamalar sonucu elde edilen fatura tutarý:
 firstbill          = ((sum(Load_T(24:68,2))*DT + sum(Load_T (68:88,2))*PT + (sum(Load_T(88:96,2)) + sum(Load_T (1:24,2)))*NT)*30) / (1000*4);
 fprintf('>Invoice amount obtained as a result of expenditures                              : %.4f TL/Month\n', firstbill)
@@ -244,6 +213,7 @@ disp(' ')
 bill_with_shifting = ((sum(Load_sT(24 :68,2))*DT + sum(Load_sT(68:88,2))*PT + (sum(Load_sT(88:96,2)) + sum(Load_sT(1:24,2)))*NT)*30) / (1000*4);
 fprintf('>Invoice amount obtained by including only the load shifting process in the system: %.4f TL/Month\n', bill_with_shifting)
 disp(' ')
+
 %Yalnizca yuk kaydirarak elde edilen kar:
 save_with_shifting = firstbill - bill_with_shifting;  %TL/Month
 fprintf('>Profit value obtained by shifting loads only                                     : %.4f TL/Month \n', save_with_shifting)
@@ -252,6 +222,7 @@ disp(' ')
 %Yanlizca ruzgar turbinin sisteme dahil edilmesi ile elde edilen fatura tutari: 
 bill_with_wind_turbine     =((sum(Load_T(24:68,2)-(P_wind*(11)))*DT + (sum(Load_T (68:88,2))-P_wind*(5))*PT + (sum(Load_T(88:96,2)) + sum(Load_T (1:24,2))-P_wind*(8))*NT)*30) / (1000*4);
 fprintf('>Invoice amount obtained by including only the wind turbine in the system         : %.4f TL/Month\n', bill_with_wind_turbine)
+
 disp(' ')
 %Yalnizca ruzgar turbini eklenerek elde edilen kar:
 save_with_wind_turbine     = firstbill - bill_with_wind_turbine;
