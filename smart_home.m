@@ -54,7 +54,7 @@ end
 total_energy_expenditure = (buzdolabi + kombi + aydinlatma1  + camasirmakinesi + bulasikmakinesi + aydinlatma2 + TV1 + firin + klima + aspirator + elektriklisupurge + suisiticisi + utu + TV2 + sackurutma + bilgisayar);
 
 stairs(total_energy_expenditure)  %Gun icerisindeki toplam harcamayi gorebiliriz. 
-legend ('Unshifted Load ','Shifted Load ')
+legend ('Load')
 ylabel ('Power[W]')
 xlabel ('15 minutes periods of day ')
 
