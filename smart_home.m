@@ -54,6 +54,9 @@ end
 total_energy_expenditure = (buzdolabi + kombi + aydinlatma1  + camasirmakinesi + bulasikmakinesi + aydinlatma2 + TV1 + firin + klima + aspirator + elektriklisupurge + suisiticisi + utu + TV2 + sackurutma + bilgisayar);
 
 stairs(total_energy_expenditure)  %Gun icerisindeki toplam harcamayi gorebiliriz. 
+legend ('Unshifted Load ','Shifted Load ')
+ylabel ('Power[W]')
+xlabel ('15 minutes periods of day ')
 
 time = 1:96; %Gun icerisindeki 96 adet 15 dk 'lik zaman dilimi(24*4=96 adet 15 dk'lik zaman dilimi elde edilir.)
 
@@ -108,7 +111,7 @@ while flag == 0    % (Baslangicta flag degiskeni 0' a esittir.)
     if TH >= Minimum_treshold_value %Treshold degeri, en yuksek oncelik seviyesine sahip 1.grup yukun maksimum degerinden buyuk olmadir.
         flag  = 1;
         count = 0;
-        Load_sT = Load_T;          % Her yuk grubu uygun gorulmesi halinde sirasiyla otelenir ve istenen seviye yakalanmaya çaliþilir.
+        Load_sT = Load_T;          % Her yuk grubu uygun gorulmesi halinde sirasiyla otelenir ve istenen seviye yakalanmaya Ã§aliÃ¾ilir.
         for index = P_b:P_e        % 5.yuk grubunu oteleme
             ++count;
             P_en  = P_e + count;
@@ -232,7 +235,7 @@ NT = 0.180231 ; %Night_Period (TL/kWh)| 22:00 - 06:00
 %*************************
 disp(' ')
 disp('*******************************************RESULTS****************************************************')
-%Harcamalar sonucu elde edilen fatura tutarý:
+%Harcamalar sonucu elde edilen fatura tutarÃ½:
 firstbill          = ((sum(Load_T(24:68,2))*DT + sum(Load_T (68:88,2))*PT + (sum(Load_T(88:96,2)) + sum(Load_T (1:24,2)))*NT)*30) / (1000*4);
 fprintf('>Invoice amount obtained as a result of expenditures                              : %.4f TL/Month\n', firstbill)
 
