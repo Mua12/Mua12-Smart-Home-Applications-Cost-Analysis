@@ -40,7 +40,7 @@ Bu çalışmada bir akıllı evin  elektrik sistemi ve temel elektrikli ev aletl
 
 ![image](https://user-images.githubusercontent.com/83073342/127766713-7f0babd7-d182-47eb-abe0-eee8080bd75a.png)
 
-                    Kış mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
+                Kış mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
                                                                      
 Ardından proje kapsamında daha önceden belirlenen yük grupları ve yük gruplarının önem sıraları belirlenmiştir. Verilen harcama değerleri geniş bir aile baz alınarak verilmiştir. Akıllı evde kullanılan  ev aletleri kendi içerisinde önem sırasına göre gruplandırılmıştır.  Bu gruplandırmada önem sırası bir numaralı gruptan beş numaralı gruba doğru aşağıdaki tabloda belirtildiği  gibidir. Birinci yük grubu en yüksek öneme sahip yük grubu olmak üzere yük grupları sıralanmıştır. (Bu sıralama arzu edildiği şekliyle kodda yeniden düzenlenebilir.)  
 
@@ -106,7 +106,7 @@ Kış mevsiminin ortalama günlük enerji harcaması değerlerini yüklenir. Kı
 
 ![image](https://user-images.githubusercontent.com/83073342/127766713-7f0babd7-d182-47eb-abe0-eee8080bd75a.png)
 
-                    Kış mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
+          Kış mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
 
 Ardından ötelenmesi istenilen zaman aralığı istenir.
 
@@ -164,7 +164,7 @@ Yaz mevsiminin ortalama günlük enerji harcaması değerlerini yüklenir. Yaz m
 
 ![image](https://user-images.githubusercontent.com/83073342/127770250-0a0e8e6f-1b44-4b40-86ed-aadf9e67da60.png)
                     
-                    Yaz mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
+          Yaz mevsimi için gün içerisinde anlık ortalama talep edilen enerji harcamasını gösteren grafik
           
 Ardından ötelenmesi istenilen zaman aralığı istenir.
 
