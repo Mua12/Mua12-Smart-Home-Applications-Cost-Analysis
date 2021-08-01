@@ -94,7 +94,7 @@ Bu bilgi ile türbinin ürettiği enerji miktarına ulaşılır. Ve bu değer ma
 
 İki örnek senaryo ile verilenleri somutlaştırılalım. 
 
-Şebekeden güç çekiminin fazla olduğu peak zamanda (17:00-22:00 saatleri arasında) birinci senaryoda kış mevsimi için 5000 W, ikinci senaryoda yaz mevsimi için 4000 W trashold değeri belirlenmiştir ve bu yükler Akıllı Ev Enerji Yönetimi Sistemi vasıtasıyla 22:00 ‘den sonrasına ötelenmiştir. Ötelenmesi istenen aralıklar 70 ile 80 (70. 15 dakikalık zaman ile 80. 15 dakikalık) zaman aralığı belirlenmiştir. Ayrıca akıllı evin enerji ihtiyacının bir kısmını karşılayacak bir rüzgar türbini Enerji Yönetim Sistemi'ne bağlı ve entegre şekilde çalışarak gün içerisinde kazandığı enerjiyi ev içerisinde kullanmakta ve toplam enerji maliyetini azaltmaktadır. İki senaryoda da konum için belirlenen rüzgar hızı 5 km/s'dir.  
+Şebekeden güç çekiminin fazla olduğu peak zamanda (17:00-22:00 saatleri arasında) birinci senaryoda kış mevsimi için 5000 W, ikinci senaryoda yaz mevsimi için 4000 W trashold değeri belirlenmiştir ve bu yükler Akıllı Ev Enerji Yönetimi Sistemi vasıtasıyla 22:00 ‘den sonrasına ötelenmiştir. Ötelenmesi istenen aralıklar 70 ile 80 (70. 15 dakikalık zaman ile 80. 15 dakikalık) zaman aralığı belirlenmiştir. Ayrıca akıllı evin enerji ihtiyacının bir kısmını karşılayacak bir rüzgar türbini Enerji Yönetim Sistemi'ne bağlı ve entegre şekilde çalışarak gün içerisinde kazandığı enerjiyi ev içerisinde kullanmakta ve toplam enerji maliyetini azaltmaktadır. İki senaryoda da konum için belirlenen rüzgar hızı 5 m/s'dir.  
 
 ***ÖRNEK SENARYO 1***
 
@@ -215,8 +215,8 @@ Tüm bilgiler girildikten sonra sistemin yük öteleme ve rüzgar türbininin en
 
 ![image](https://user-images.githubusercontent.com/83073342/127752234-13465ad4-7729-46e7-ad6e-b0ad418da3af.png)
 
-Örnek senaryoların sonucunda hem talep tarafı aksiyomlarından yük öteleme uygulaması hem de yenilebilir bir enerji kaynağının akıllı ev enerji yönetimi sistemi ile entegrasyonu sonucu tüketicinin toplam enerji bedelini yaklaşık %30 azalacağını göstermektedir. 
+Örnek senaryoların sonucunda hem talep tarafı aksiyomlarından yük öteleme uygulaması hem de yenilebilir bir enerji kaynağının akıllı ev enerji yönetimi sistemi ile entegrasyonu sonucu tüketicinin toplam enerji bedelini yaklaşık %30 azaltacağını göstermektedir. 
 
 Burada girilen değerler asgari büyüklükler olarak verilmiş olduğundan konuma ait ortalama rüzgar hızı, öteleme yapılacak zaman aralığı ve eşik değeri gibi parametreler değiştirilirdiğinde enerji bedelinin çok daha fazla azalacağı göz önünde bulundurulmalıdır. 
 
-Ayrıca bu çalışmada sadece yük öteleme veya sadece rüzgar türbininden sağlanan kar da elde edilebilmektedir. Bir akıllı evde farklı şekillerde gerçekleştirilebilecek senaryolar ile Enerji Yönetim Sistemi'i gibi bir sistemin gerçekleştirdiği çeşitli aksiyomlardan biri olan 'Yük Öteleme(Load Shifting)' uyguanmasının ve yenilebilir enerji üretiminin tüketiciye finansal etkisi ölçülebilmektedir.
+Ayrıca bu çalışmada sadece yük öteleme veya sadece rüzgar türbininden sağlanan kar da elde edilebilmektedir. Bir akıllı evde farklı şekillerde gerçekleştirilebilecek senaryolar ile Enerji Yönetim Sistemi'i gibi bir sistemin gerçekleştirdiği çeşitli aksiyomlardan biri olan 'Yük Öteleme(Load Shifting)' uygulamasının ve yenilebilir enerji üretiminin tüketiciye finansal etkisi ölçülebilmektedir.
